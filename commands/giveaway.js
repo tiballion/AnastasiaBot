@@ -8,6 +8,6 @@ module.exports = {
 	async execute(interaction) {
 		const question = interaction.options.getString('text');
 		const sender = interaction.user;
-		return;
+		await interaction.reply(`The giveaway is ${question}!`);
 	},
 };
