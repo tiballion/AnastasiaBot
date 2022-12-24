@@ -1,17 +1,16 @@
-const { SlashCommandBuilder } = require('discord.js');
+const {  SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
-const createEmbed = (question) => {
-	const embed = new MessageEmbed()
-		.setColor('#0099ff')
+
+const createEmbed = () => {
+	const embed = new EmbedBuilder()
 		.setTitle('Giveaway')
-		.setDescription(question)
-		.setTimestamp()
-		.setFooter('Giveaway');
+		.setDescription('React to this message to enter the giveaway!')
+		.setColor('#FF0000')
 	return embed;
 }
 
 const createGiveaway = (channel) => {
-	channel.send('Giveaway!');
+	channel.send({ embeds: [createEmbed()] });
 }
 
 const checkGiveawayChannel = (interaction) => {
