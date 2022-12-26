@@ -29,10 +29,11 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('giveaway')
 		.setDescription('Create a giveaway!')
-		.addStringOption(option => option.setName('title').setDescription('The title of the giveaway!')),
+		.addStringOption(option => option.setName('title').setDescription('The title of the giveaway!'))
+		.addIntegerOption(option => option.setName('duration').setDescription('The duration of the giveaway!')),
 	async execute(interaction) {
 		const title = interaction.options.getString('title');
-		const sender = interaction.user;
+		const duration = interaction.options.getInteger('duration');
 		const giveaway = checkGiveawayChannel(interaction);
 		const reponse = giveaway ? `The giveaway is ${giveaway}!` : `There is no giveaway channel!`;
 		await interaction.reply(reponse);
