@@ -30,12 +30,13 @@ module.exports = {
 		.setName('giveaway')
 		.setDescription('Create a giveaway!')
 		.addStringOption(option => option.setName('title').setDescription('The title of the giveaway!'))
-		.addIntegerOption(option => option.setName('duration').setDescription('The duration of the giveaway!')),
+		.addChannelOption(option => option.setName('channel').setDescription('The channel to create the giveaway in!')),
 	async execute(interaction) {
-		const title = interaction.options.getString('title');
-		const duration = interaction.options.getInteger('duration');
+		/*const title = interaction.options.getString('title');
 		const giveaway = checkGiveawayChannel(interaction);
 		const reponse = giveaway ? `The giveaway is ${giveaway}!` : `There is no giveaway channel!`;
-		await interaction.reply(reponse);
+		await interaction.reply(reponse);*/
+		console.log(interaction.options.getChannel('channel'));
+		await interaction.reply("Hello!");
 	},
 };
